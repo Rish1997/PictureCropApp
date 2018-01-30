@@ -1,0 +1,8 @@
+{
+  "name": "picCrop",
+  "app_id": "03ea1413",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
