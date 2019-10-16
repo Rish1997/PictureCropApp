@@ -85,4 +85,6 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="To choose photos" />
     </plugin>
     <plugin name="cordova-plugin-crop" spec="^0.4.0" />
+    <engine name="android" spec="~6.2.3" />
+    <plugin name="cordova-plugin-camera" spec="^2.4.1" />
 </widget>

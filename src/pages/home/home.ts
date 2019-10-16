@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PhotoLibrary } from '@ionic-native/photo-library';
+import { Camera } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-home',
@@ -8,7 +9,8 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
 })
 export class HomePage {
   vari : any ;
-  constructor(public navCtrl: NavController, public photoLibrary : PhotoLibrary) {
+  base64Image:any;
+  constructor(public navCtrl: NavController, public photoLibrary : PhotoLibrary , public camera : Camera) {
 
   }
 
@@ -37,4 +39,14 @@ export class HomePage {
     .catch(err => console.log('permissions weren\'t granted'));
   }
 
+  accessGallery(){
+    this.camera.getPicture({
+      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+      destinationType: this.camera.DestinationType.DATA_URL
+     }).then((imageData) => {
+       this.base64Image = 'data:image/jpeg;base64,'+imageData;
+      }, (err) => {
+       console.log(err);
+     });
+   }
 }
